@@ -1,10 +1,10 @@
-import { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
-import Header from './components/Header';
-import Home from './components/Home';
-import Footer from './components/Footer';
-import Menu from './components/Menu';
+import Header from './components/header/Header';
+import Home from './components/home/Home';
+import Menu from './components/menu/Menu';
+import Footer from './components/footer/Footer';
+
 
 const App = () => {
   return (
