@@ -11,7 +11,7 @@ import Cart from '../../img/cart.svg';
 const Header = () => {
   return (
     <div>
-         <Navbar expand="lg" className="bg-body-tertiary">
+      <Navbar expand="lg" className="bg-body-tertiary">
         <Container>
           <Navbar.Brand href="#home" className="mx-auto">
             <img src={pizzalogo} alt='Logo' style={{ maxWidth: '150px' }} />
@@ -31,16 +31,16 @@ const Header = () => {
               <Nav.Link href="#quienes-somos">Quienes Somos</Nav.Link>
             </Nav>
             <Nav className="roboto-bold">
-            <Nav.Item>
-              <Nav.Link href="#login" className="iconlogo">
-                <img src={UserLog} alt='Login' style={{ maxWidth: '50px' }} />
-              </Nav.Link>
-            </Nav.Item>
-            <Nav.Item>
-              <Nav.Link href="#cart" className="iconlogo">
-                <img src={Cart} alt='cart' style={{ maxWidth: '50px' }} />
-              </Nav.Link>
-            </Nav.Item>
+              <Nav.Item>
+                <Nav.Link href="#login" className="iconlogo">
+                  <img src={UserLog} alt='Login' style={{ maxWidth: '50px' }} />
+                </Nav.Link>
+              </Nav.Item>
+              <Nav.Item>
+                <Nav.Link href="#cart" className="iconlogo">
+                  <img src={Cart} alt='cart' style={{ maxWidth: '50px' }} />
+                </Nav.Link>
+              </Nav.Item>
             </Nav>
           </Navbar.Collapse>
         </Container>

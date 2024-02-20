@@ -1,27 +1,33 @@
-import React from 'react';
-import './home.css';
-import bagIcon from '../../img/shopping.svg';
-import motoIcon from '../../img/delivery.svg';
+import React from "react";
+import { Button } from "react-bootstrap";
+import { useNavigate } from "react-router";
+import { useUserAuth } from "../context/UserAuthContext";
 
 const Home = () => {
+  const { logOut, user } = useUserAuth();
+  const navigate = useNavigate();
+  const handleLogout = async () => {
+    try {
+      await logOut();
+      navigate("/login");
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
   return (
-    <div className="home-container">
-      <div className="background-image">
-        <div className="center-content">
-          <div className="delivery-options">
-            <div className="delivery-option">
-              <img src={motoIcon} alt="Moto Icon" />
-              <span>Delivery</span>
-            </div>
-            <div className="pickup-option">
-              <img src={bagIcon} alt="Bag Icon" />
-              <span>Retirar</span>
-            </div>
-          </div>
-          <button className="order-button">Pedir</button>
-        </div>
+    <>
+      <div className="p-4 box mt-3 text-center">
+        Welcome <br />
+        {user && user.email}
       </div>
-    </div>
+      <div className="d-grid gap-2">
+
+          <Button variant="primary" onClick={handleLogout}>
+            Log out
+          </Button>
+
+      </div>
+    </>
   );
 };
 

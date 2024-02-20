@@ -51,7 +51,10 @@ const Footer = () => {
       <div className='text-center p-3' style={{ backgroundColor: 'rgba(0, 0, 0, 0.2)' }}>
     © 2024 powered by:&nbsp;
     <a className='text-white' href='https://github.com/angelsmithlgs'>
-        tofu
+        ngl&nbsp;
+    </a>
+    <a className='text-white' href='https://github.com/SrMule'>
+       &&nbsp;drd
     </a>
 </div>
     </MDBFooter>
