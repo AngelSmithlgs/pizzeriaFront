@@ -1,30 +1,47 @@
-.carousel-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
- 
+.home-container {
+    height: 100vh;
+    background-image: url('../../img/pizzaorder.avif');
+    background-size: 100% auto; 
+    background-position: center top; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .center-content {
+    text-align: center;
+  }
+
+  .delivery-options {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
   
-  border: 1vw solid #ccc; 
-  overflow: hidden;
-
-}
-
-.carousel-img-container {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.image-wrapper {
-  width: 1000%;
-  max-width: calc(100% - 1vw);
-  max-height: 100%;
-}
-
-.carousel-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
+  .delivery-option,
+  .pickup-option {
+    background-color: rgba(255, 255, 255, 0.7); 
+    padding: 40px;
+    border-radius: 10px; 
+    margin: 0 20px;
+  }
+  
+  .delivery-option img,
+  .pickup-option img {
+    width: 50px; 
+    height: 50px; 
+  }
+  
+  .delivery-option span,
+  .pickup-option span {
+    display: block;
+    margin-top: 5px;
+  }
+  
+  .order-button {
+    background-color: rgba(255, 255, 255, 0.7); 
+    padding: 10px 130px; 
+    border-radius: 10px; 
+    margin-top: 20px;
+  }

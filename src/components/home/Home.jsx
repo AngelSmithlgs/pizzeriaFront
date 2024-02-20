@@ -1,50 +1,28 @@
-import { Carousel } from 'react-bootstrap';
+import React from 'react';
 import './home.css';
+import bagIcon from '../../img/shopping.svg';
+import motoIcon from '../../img/delivery.svg';
 
-import PizzaPromo from '../../img/promopizza2.webp';
-import PizzaPromo2 from '../../img/promopizza4.jpg';
-import PizzaPromo3 from '../../img/promopizza3.webp';
-
-function Home() {
+const Home = () => {
   return (
-    <div className="carousel-container">
-      <Carousel fade={true} interval={5000}>
-        <Carousel.Item>
-          <div className="carousel-img-container">
-            <div className="image-wrapper">
-              <img
-                className="d-block w-100 h-100 carousel-img"
-                src={PizzaPromo}
-                alt="Pizza Promo"
-              />
+    <div className="home-container">
+      <div className="background-image">
+        <div className="center-content">
+          <div className="delivery-options">
+            <div className="delivery-option">
+              <img src={motoIcon} alt="Moto Icon" />
+              <span>Delivery</span>
+            </div>
+            <div className="pickup-option">
+              <img src={bagIcon} alt="Bag Icon" />
+              <span>Retirar</span>
             </div>
           </div>
-        </Carousel.Item>
-        <Carousel.Item>
-          <div className="carousel-img-container">
-            <div className="image-wrapper">
-              <img
-                className="d-block w-100 h-100 carousel-img"
-                src={PizzaPromo2}
-                alt="Second slide"
-              />
-            </div>
-          </div>
-        </Carousel.Item>
-        <Carousel.Item>
-          <div className="carousel-img-container">
-            <div className="image-wrapper">
-              <img
-                className="d-block w-100 h-100 carousel-img"
-                src={PizzaPromo3}
-                alt="Third slide"
-              />
-            </div>
-          </div>
-        </Carousel.Item>
-      </Carousel>
+          <button className="order-button">Pedir</button>
+        </div>
+      </div>
     </div>
   );
-}
+};
 
 export default Home;

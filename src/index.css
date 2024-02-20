@@ -1,0 +1,21 @@
+:root {
+    --roboto: 'Roboto', sans-serif;
+    --roboto700: 700;
+    --robotonormal: normal;
+    --fontSize: 1.5rem;
+    --letterSpacing: 3px;
+    --linkMargin: 15px;
+  }
+  
+  .roboto-bold {
+    font-family: var(--roboto);
+    font-weight: var(--roboto700);
+    font-style: var(--robotonormal);
+    font-size: var(--fontSize);
+    letter-spacing: var(--letterSpacing);
+    letter-spacing: var(--letterSpacing);
+  }
+  
+  .navbar-nav .nav-link {
+    margin-right: var(--linkMargin)
+}

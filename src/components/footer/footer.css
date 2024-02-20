@@ -1,0 +1,16 @@
+.footer-logo {
+    max-width: 100px;
+    height: auto;
+  }
+
+  .text-white {
+    text-decoration: none; 
+    color: white;
+    cursor: pointer; 
+}
+
+.footer-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
