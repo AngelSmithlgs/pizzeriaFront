@@ -3,6 +3,7 @@ import './header.css';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import { Link } from 'react-router-dom';
 
 import pizzalogo from '../../img/pizzalogo.png';
 import UserLog from '../../img/user.svg';
@@ -31,11 +32,11 @@ const Header = () => {
               <Nav.Link href="#quienes-somos">Quienes Somos</Nav.Link>
             </Nav>
             <Nav className="roboto-bold">
-              <Nav.Item>
-                <Nav.Link href="#login" className="iconlogo">
-                  <img src={UserLog} alt='Login' style={{ maxWidth: '50px' }} />
-                </Nav.Link>
-              </Nav.Item>
+            <Nav.Item>
+              <Link to="/home" className="iconlogo">
+                <img src={UserLog} alt='Login' style={{ maxWidth: '50px' }} />
+              </Link>
+            </Nav.Item>
               <Nav.Item>
                 <Nav.Link href="#cart" className="iconlogo">
                   <img src={Cart} alt='cart' style={{ maxWidth: '50px' }} />
