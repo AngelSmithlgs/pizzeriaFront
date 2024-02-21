@@ -5,6 +5,8 @@ import { Button } from "react-bootstrap";
 import GoogleButton from "react-google-button";
 import { useUserAuth } from "../../context/UserAuthContext";
 
+import Logopizza from "../../../img/pizzalogo.png"
+
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -36,7 +38,8 @@ const Login = () => {
   return (
     <>
       <div className="p-4 box">
-        <h2 className="mb-3">Firebase/ React Auth Login</h2>
+      <img src={Logopizza} alt='cart' style={{ maxWidth: '50px' }} />
+        <h2 className="mb-3">Firebase/React Auth Signup</h2>
 
         {error && <Alert variant="danger">{error}</Alert>}
 
