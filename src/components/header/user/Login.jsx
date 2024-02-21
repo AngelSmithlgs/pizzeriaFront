@@ -38,7 +38,9 @@ const Login = () => {
   return (
     <>
       <div className="p-4 box">
-      <img src={Logopizza} alt='cart' style={{ maxWidth: '50px' }} />
+        <Link to="/">
+          <img src={Logopizza} alt='cart' style={{ maxWidth: '50px' }} />
+        </Link>
         <h2 className="mb-3">Firebase/React Auth Signup</h2>
 
         {error && <Alert variant="danger">{error}</Alert>}
@@ -77,7 +79,7 @@ const Login = () => {
         </div>
       </div>
       <div className="p-4 box mt-3 text-center">
-        dont have an account? <Link to="/signup">Sign up</Link>
+        Dont have an account? <Link to="/signup">Sign up</Link>
       </div>
     </>
   );

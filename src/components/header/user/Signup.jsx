@@ -42,7 +42,9 @@ const Signup = () => {
   return (
     <>
       <div className="p-4 box">
-      <img src={Logopizza} alt='cart' style={{ maxWidth: '50px' }} />
+        <Link to="/">
+          <img src={Logopizza} alt='cart' style={{ maxWidth: '50px' }} />
+        </Link>
         <h2 className="mb-3">Firebase/React Auth Signup</h2>
         
         {error && <Alert variant="danger">{error}</Alert>}
@@ -81,18 +83,19 @@ const Signup = () => {
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="formBasicPhoneNumber">
-            <Form.Control
-              type="tel"
-              placeholder="+569"
-              value="+569"
-              disabled
-            />
-            <Form.Control
-              type="tel"
-              placeholder="Phone Number"
-              onChange={(e) => setPhoneNumber(e.target.value)}
-            />
-          </Form.Group>
+          <Form.Control
+            type="tel"
+            placeholder="+569"
+            value="+569"
+            disabled
+          />
+          <Form.Control
+            type="tel"
+            placeholder="Phone Number"
+            onChange={(e) => setPhoneNumber(`+569${e.target.value}`)}
+            id="formBasicPhoneNumberInput"
+          />
+        </Form.Group>
 
           <div className="d-grid gap-2">
             <Button variant="primary" type="Submit">

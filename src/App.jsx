@@ -1,4 +1,3 @@
-import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
@@ -9,6 +8,7 @@ import Login from "./components/header/user/Login";
 import Signup from "./components/header/user/Signup";
 import { UserAuthContextProvider } from "./components/context/UserAuthContext";
 import ProtectedRoute from "./components/header/user/ProtectedRoute";
+
 
 
 function App() {
