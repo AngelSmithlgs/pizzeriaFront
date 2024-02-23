@@ -3,13 +3,12 @@ import { getAuth } from "firebase/auth";
 
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBx8VImExB7MvP4hzIdUFsttr1qXV7M_hk",
-  authDomain: "pizza-29738.firebaseapp.com",
-  projectId: "pizza-29738",
-  storageBucket: "pizza-29738.appspot.com",
-  messagingSenderId: "43677917383",
-  appId: "1:43677917383:web:5099f66461b21d5a849ee2",
-  measurementId: "G-FPXQ86Y0XN"
+  apiKey: "AIzaSyCCL2d2DjIvAPcFIB5qIc2S_3KEBBFR4ac",
+  authDomain: "proyecto-pizza-8a014.firebaseapp.com",
+  projectId: "proyecto-pizza-8a014",
+  storageBucket: "proyecto-pizza-8a014.appspot.com",
+  messagingSenderId: "1007728884962",
+  appId: "1:1007728884962:web:4d919e4d9ddd0e5405f2bb"
 };
 
 const app = initializeApp(firebaseConfig);
@@ -18,3 +17,5 @@ const auth = getAuth(app)
 
 
 export { app, auth };
+
+/* export const db = getFirestore(app); */
