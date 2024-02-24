@@ -1,7 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
-import { signOut } from "firebase/auth";
+/* import { signOut } from "firebase/auth"; */
 
 
 const firebaseConfig = {

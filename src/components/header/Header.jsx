@@ -6,7 +6,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import { Link } from 'react-router-dom';
 import pizzalogo from '../../img/pizzalogo.png';
 import UserLog from '../../img/user.svg';
-import UserLogGreen from '../../img/user-green.svg';  // Nueva imagen en verde
+import UserLogGreen from '../../img/user-green.svg';
 import Cart from '../../img/cart.svg';
 import { useUserAuth } from '../context/UserAuthContext';
 

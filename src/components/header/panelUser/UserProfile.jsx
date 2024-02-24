@@ -20,7 +20,7 @@ const UserProfile = () => {
   const handleLogout = async () => {
     try {
       await logOut();
-      navigate('/'); // Redirige al usuario a la página de inicio después de cerrar sesión
+      navigate('/'); 
     } catch (error) {
       console.error('Error al cerrar sesión:', error.message);
     }
