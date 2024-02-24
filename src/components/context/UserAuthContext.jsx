@@ -14,27 +14,36 @@ const userAuthContext = createContext();
 export function UserAuthContextProvider({ children }) {
   const [user, setUser] = useState(null);
 
-  function logIn(email, password) {
+  async function logIn(email, password) {
     return signInWithEmailAndPassword(auth, email, password);
   }
 
-  function signUp(email, password) {
-    return createUserWithEmailAndPassword(auth, email, password);
+  async function signUp(email, password) {
+    try {
+      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      const newUser = userCredential.user;
+      console.log("Successfully signed up:", newUser);
+      setUser(newUser);
+      return newUser;
+    } catch (error) {
+      console.error("Error during sign-up:", error.message);
+      throw error;
+    }
   }
 
-  function logOut() {
+  async function logOut() {
     return signOut(auth);
   }
 
-  function googleSignIn() {
+  async function googleSignIn() {
     const googleAuthProvider = new GoogleAuthProvider();
     return signInWithPopup(auth, googleAuthProvider);
   }
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (currentuser) => {
-      console.log("Auth", currentuser);
-      setUser(currentuser);
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      console.log("Auth state changed:", currentUser);
+      setUser(currentUser);
     });
 
     return () => {

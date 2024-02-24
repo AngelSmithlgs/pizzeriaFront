@@ -1,15 +1,20 @@
 /* eslint-disable react/prop-types */
-import { Navigate, Route } from "react-router-dom";
+import { Route, Navigate, useNavigate } from "react-router-dom";  // Asegúrate de tener useNavigate aquí
 import { useUserAuth } from "../../context/UserAuthContext";
+import { useEffect } from "react";
 
 const ProtectedRoute = ({ element }) => {
   const { user } = useUserAuth();
+  const navigate = useNavigate();
 
-  if (!user) {
-    return <Navigate to="/login" />;
-  }
+  useEffect(() => {
+    if (!user) {
+      // Si el usuario no está autenticado, redirigir a la página de inicio de sesión
+      navigate("/login");
+    }
+  }, [user, navigate]);
 
-  return <Route element={element} />;
+  return user ? <Route element={element} /> : <Navigate to="/login" replace />;
 };
 
 export default ProtectedRoute;

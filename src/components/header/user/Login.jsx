@@ -1,11 +1,9 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { Form, Alert } from "react-bootstrap";
-import { Button } from "react-bootstrap";
+import { Form, Alert, Button } from "react-bootstrap";
 import GoogleButton from "react-google-button";
 import { useUserAuth } from "../../context/UserAuthContext";
-
-import Logopizza from "../../../img/pizzalogo.png"
+import Logopizza from "../../../img/pizzalogo.png";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -17,6 +15,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
+
     try {
       await logIn(email, password);
       navigate("/home");
@@ -27,11 +26,12 @@ const Login = () => {
 
   const handleGoogleSignIn = async (e) => {
     e.preventDefault();
+    
     try {
       await googleSignIn();
-      navigate("/home");
+      navigate("/");
     } catch (error) {
-      console.log(error.message);
+      setError(error.message);
     }
   };
 
@@ -39,19 +39,19 @@ const Login = () => {
     <>
       <div className="p-4 box">
         <Link to="/">
-          <img src={Logopizza} alt='cart' style={{ maxWidth: '50px' }} />
+          <img src={Logopizza} alt="cart" style={{ maxWidth: "50px" }} />
         </Link>
-        <h2 className="mb-3">Firebase/React Auth Signup</h2>
+        <h2 className="mb-3">Log In</h2>
 
         {error && <Alert variant="danger">{error}</Alert>}
 
         <Form onSubmit={handleSubmit}>
-          
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Control
               type="email"
               placeholder="Email address"
               onChange={(e) => setEmail(e.target.value)}
+              required
             />
           </Form.Group>
 
@@ -60,11 +60,12 @@ const Login = () => {
               type="password"
               placeholder="Password"
               onChange={(e) => setPassword(e.target.value)}
+              required
             />
           </Form.Group>
 
           <div className="d-grid gap-2">
-            <Button variant="primary" type="Submit">
+            <Button variant="primary" type="submit">
               Log In
             </Button>
           </div>

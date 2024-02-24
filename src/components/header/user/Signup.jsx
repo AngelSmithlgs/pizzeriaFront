@@ -3,18 +3,19 @@ import { Link, useNavigate } from "react-router-dom";
 import { Form, Alert } from "react-bootstrap";
 import { Button } from "react-bootstrap";
 import { useUserAuth } from "../../context/UserAuthContext";
+import { doc, setDoc } from "firebase/firestore";
+import { db } from "../../../firebase/firebase";
 
-import Logopizza from "../../../img/pizzalogo.png"
+import Logopizza from "../../../img/pizzalogo.png";
 
 const Signup = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [phoneNumber, setPhoneNumber] = useState("");
   const [error, setError] = useState("");
   const { signUp } = useUserAuth();
-  let navigate = useNavigate();
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -25,14 +26,15 @@ const Signup = () => {
       return;
     }
 
-    const phoneRegex = /^\+569\d{8}$/;
-    if (!phoneRegex.test(phoneNumber)) {
-      setError("El número de teléfono debe comenzar con +569 y tener 8 dígitos adicionales.");
-      return;
-    }
-
     try {
-      await signUp({ name, email, password, phoneNumber });
+      // Registra al usuario con Firebase Auth
+      await signUp(email, password);
+
+      // Almacena información adicional en la base de datos
+      const userDocRef = doc(db, "usuarios", email);
+      await setDoc(userDocRef, { name, email });
+
+      // Redirige al usuario a la página de inicio (o a donde sea necesario)
       navigate("/");
     } catch (err) {
       setError(err.message);
@@ -43,10 +45,10 @@ const Signup = () => {
     <>
       <div className="p-4 box">
         <Link to="/">
-          <img src={Logopizza} alt='cart' style={{ maxWidth: '50px' }} />
+          <img src={Logopizza} alt="cart" style={{ maxWidth: "50px" }} />
         </Link>
         <h2 className="mb-3">Firebase/React Auth Signup</h2>
-        
+
         {error && <Alert variant="danger">{error}</Alert>}
 
         <Form onSubmit={handleSubmit}>
@@ -81,21 +83,6 @@ const Signup = () => {
               onChange={(e) => setConfirmPassword(e.target.value)}
             />
           </Form.Group>
-
-          <Form.Group className="mb-3" controlId="formBasicPhoneNumber">
-          <Form.Control
-            type="tel"
-            placeholder="+569"
-            value="+569"
-            disabled
-          />
-          <Form.Control
-            type="tel"
-            placeholder="Phone Number"
-            onChange={(e) => setPhoneNumber(`+569${e.target.value}`)}
-            id="formBasicPhoneNumberInput"
-          />
-        </Form.Group>
 
           <div className="d-grid gap-2">
             <Button variant="primary" type="Submit">

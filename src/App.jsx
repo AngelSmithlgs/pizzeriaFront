@@ -9,19 +9,16 @@ import Signup from "./components/header/user/Signup";
 import { UserAuthContextProvider } from "./components/context/UserAuthContext";
 import ProtectedRoute from "./components/header/user/ProtectedRoute";
 
-
-
 function App() {
   return (
     <UserAuthContextProvider>
       <Router>
         <Routes>
           <Route path='/' element={<Landing />} />
-          <Route path='/home'element={
-              <ProtectedRoute element={<Home />} />}/>
+          <Route path='/home' element={<ProtectedRoute element={<Home />} />} />
           <Route path='/login' element={<Login />} />
           <Route path='/signup' element={<Signup />} />
-          {/* añadir ruta de usuario a vista de usuario */}
+          {/* Añadir rutas adicionales según sea necesario */}
         </Routes>
       </Router>
     </UserAuthContextProvider>
