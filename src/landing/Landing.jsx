@@ -6,7 +6,6 @@ import Body from '../components/body/Body';
 function Landing() {
   return (
     <div className='app-container'>
-      <Header rol={'usuario'} />
       <Body />
       <Footer />
     </div>
