@@ -8,6 +8,8 @@ import Login from "./components/header/user/Login";
 import Signup from "./components/header/user/Signup";
 import { UserAuthContextProvider } from "./components/context/UserAuthContext";
 import ProtectedRoute from "./components/header/user/ProtectedRoute";
+import UserProfile from "./components/header/panelUser/UserProfile";
+import EditProfile from "./components/header/panelUser/EditProfile";
 
 function App() {
   return (
@@ -18,6 +20,8 @@ function App() {
           <Route path='/home' element={<ProtectedRoute element={<Home />} />} />
           <Route path='/login' element={<Login />} />
           <Route path='/signup' element={<Signup />} />
+          <Route path="/user-profile" element={<UserProfile />} />
+          <Route path="/edit-profile" element={<EditProfile />} />
         </Routes>
       </Router>
     </UserAuthContextProvider>

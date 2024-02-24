@@ -32,7 +32,8 @@ export function UserAuthContextProvider({ children }) {
   }
 
   async function logOut() {
-    return signOut(auth);
+    await signOut(auth);
+    setUser(null);
   }
 
   async function googleSignIn() {

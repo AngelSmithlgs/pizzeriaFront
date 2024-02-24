@@ -4,12 +4,15 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { Link } from 'react-router-dom';
-
 import pizzalogo from '../../img/pizzalogo.png';
 import UserLog from '../../img/user.svg';
+import UserLogGreen from '../../img/user-green.svg';  // Nueva imagen en verde
 import Cart from '../../img/cart.svg';
+import { useUserAuth } from '../context/UserAuthContext';
 
 const Header = () => {
+  const { user } = useUserAuth();
+
   return (
     <div>
       <Navbar expand="lg" className="bg-body-tertiary">
@@ -32,11 +35,11 @@ const Header = () => {
               <Nav.Link href="#quienes-somos">Quienes Somos</Nav.Link>
             </Nav>
             <Nav className="roboto-bold">
-            <Nav.Item>
-              <Link to="/home" className="iconlogo">
-                <img src={UserLog} alt='Login' style={{ maxWidth: '50px' }} />
+              <Nav.Item>
+              <Link to={user ? "/user-profile" : "/home"} className="iconlogo">
+                <img src={user ? UserLogGreen : UserLog} alt='Login' style={{ maxWidth: '50px' }} />
               </Link>
-            </Nav.Item>
+              </Nav.Item>
               <Nav.Item>
                 <Nav.Link href="#cart" className="iconlogo">
                   <img src={Cart} alt='cart' style={{ maxWidth: '50px' }} />

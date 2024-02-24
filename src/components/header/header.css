@@ -7,6 +7,3 @@
     transition: filter 0.3s ease; 
 }
 
-.iconlogo:active img {
-    filter: grayscale(0%) opacity(100%) brightness(0%) contrast(100%);
-}
