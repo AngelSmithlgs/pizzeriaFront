@@ -18,7 +18,6 @@ function App() {
           <Route path='/home' element={<ProtectedRoute element={<Home />} />} />
           <Route path='/login' element={<Login />} />
           <Route path='/signup' element={<Signup />} />
-          {/* Añadir rutas adicionales según sea necesario */}
         </Routes>
       </Router>
     </UserAuthContextProvider>

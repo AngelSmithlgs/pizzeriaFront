@@ -27,14 +27,11 @@ const Signup = () => {
     }
 
     try {
-      // Registra al usuario con Firebase Auth
       await signUp(email, password);
 
-      // Almacena información adicional en la base de datos
       const userDocRef = doc(db, "usuarios", email);
       await setDoc(userDocRef, { name, email });
 
-      // Redirige al usuario a la página de inicio (o a donde sea necesario)
       navigate("/");
     } catch (err) {
       setError(err.message);
