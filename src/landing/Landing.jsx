@@ -1,13 +1,18 @@
+// Landing.jsx
 import React from 'react';
-import Header from '../components/header/Header';
 import Footer from '../components/footer/Footer';
 import Body from '../components/body/Body';
+import PromoMenu from '../components/menu/PromoMenu';
+import { CartProvider } from '../components/cart/CartContext';
 
 function Landing() {
   return (
     <div className='app-container'>
-      <Body />
-      <Footer />
+      <CartProvider>
+        <Body />
+        <PromoMenu />
+        <Footer />
+      </CartProvider>
     </div>
   );
 }

@@ -1,34 +1,28 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useCart } from '../cart/CartContext';
 
 const Cart = () => {
-  const [cartItems, setCartItems] = useState([]);
-
-  const addToCart = (pizza) => {
-    setCartItems([...cartItems, pizza]);
-  };
-
-  const removeFromCart = (index) => {
-    const newCartItems = [...cartItems];
-    newCartItems.splice(index, 1);
-    setCartItems(newCartItems);
-  };
-
-  const calculateTotal = () => {
-    return cartItems.reduce((total, pizza) => total + pizza.price, 0);
-  };
+  const { cartState, removeFromCart, calculateTotal } = useCart();
 
   return (
     <div className="cart-container">
       <h2>Shopping Cart</h2>
-      <ul>
-        {cartItems.map((pizza, index) => (
-          <li key={index}>
-            {pizza.name} - ${pizza.price.toFixed(2)}
-            <button onClick={() => removeFromCart(index)}>Remove</button>
-          </li>
-        ))}
-      </ul>
-      <p>Total: ${calculateTotal().toFixed(2)}</p>
+
+      {cartState.items.length === 0 ? (
+        <p>Your cart is empty.</p>
+      ) : (
+        <>
+          <ul>
+            {cartState.items.map((item) => (
+              <li key={item.id}>
+                {item.name} - ${item.price.toFixed(2)}
+                <button onClick={() => removeFromCart(item)}>Remove</button>
+              </li>
+            ))}
+          </ul>
+          <p>Total: ${calculateTotal().toFixed(2)}</p>
+        </>
+      )}
     </div>
   );
 };

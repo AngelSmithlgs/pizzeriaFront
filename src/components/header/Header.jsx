@@ -35,7 +35,7 @@ const Header = () => {
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="roboto-bold mr-auto" style={{ margin: 'auto' }}>
               <Nav.Link as={Link} to="/">Inicio</Nav.Link>
-              <Nav.Link as={Link} to="#promociones">Promociones</Nav.Link>
+              <Nav.Link as={Link} to="#promo">Promociones</Nav.Link>
               <Nav.Link as={Link} to="#menu">Menú</Nav.Link>
               <Nav.Link as={Link} to="#zona-de-reparto">Zona de reparto</Nav.Link>
               <Nav.Link as={Link} to="/quienes-somos">Quienes Somos</Nav.Link>

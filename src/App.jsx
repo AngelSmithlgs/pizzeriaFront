@@ -13,32 +13,26 @@ import UserProfile from './components/header/panelUser/UserProfile';
 import EditProfile from './components/header/panelUser/EditProfile';
 import About from './components/about/About';
 import Header from './components/header/Header';
-
-function AppContainer() {
-  return (
-    <UserAuthContextProvider>
-      <Router>
-        <Header rol={'usuario'} />
-
-        <Routes>
-          <Route path='/' element={<Landing />} />
-          <Route path='/home' element={<ProtectedRoute element={<Home />} />} />
-          <Route path='/login' element={<Login />} />
-          <Route path='/signup' element={<Signup />} />
-          <Route path="/user-profile" element={<UserProfile />} />
-          <Route path="/edit-profile" element={<EditProfile />} />
-          <Route path="/quienes-somos" element={<About />} />
-        </Routes>
-      </Router>
-    </UserAuthContextProvider>
-  );
-}
+import { CartProvider } from './components/cart/CartContext';
 
 function App() {
   return (
-    <React.StrictMode>
-      <AppContainer />
-    </React.StrictMode>
+    <UserAuthContextProvider>
+      <CartProvider>
+        <Router>
+          <Header rol={'usuario'} />
+          <Routes>
+            <Route path='/' element={<Landing />} />
+            <Route path='/home' element={<ProtectedRoute element={<Home />} />} />
+            <Route path='/login' element={<Login />} />
+            <Route path='/signup' element={<Signup />} />
+            <Route path="/user-profile" element={<UserProfile />} />
+            <Route path="/edit-profile" element={<EditProfile />} />
+            <Route path="/quienes-somos" element={<About />} />
+          </Routes>
+        </Router>
+      </CartProvider>
+    </UserAuthContextProvider>
   );
 }
 
