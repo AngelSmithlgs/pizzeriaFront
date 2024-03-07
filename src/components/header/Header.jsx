@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './header.css';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
@@ -7,11 +7,17 @@ import { Link } from 'react-router-dom';
 import pizzalogo from '../../img/pizzalogo.png';
 import UserLog from '../../img/user.svg';
 import UserLogGreen from '../../img/user-green.svg';
-import Cart from '../../img/cart.svg';
+import CartIcon from '../../img/cart.svg';
 import { useUserAuth } from '../context/UserAuthContext';
+import Cart from '../cart/Cart';
 
 const Header = () => {
   const { user } = useUserAuth();
+  const [showCartPanel, setShowCartPanel] = useState(false);
+
+  const handleCartClick = () => {
+    setShowCartPanel(!showCartPanel);
+  };
 
   return (
     <div>
@@ -41,14 +47,21 @@ const Header = () => {
                 </Link>
               </Nav.Item>
               <Nav.Item>
-                <Nav.Link href="#cart" className="iconlogo">
-                  <img src={Cart} alt='cart' style={{ maxWidth: '50px' }} />
+                <Nav.Link href="#cart" className="iconlogo" onClick={handleCartClick}>
+                  <img src={CartIcon} alt='cart' style={{ maxWidth: '50px' }} />
                 </Nav.Link>
               </Nav.Item>
             </Nav>
           </Navbar.Collapse>
         </Container>
       </Navbar>
+
+      {showCartPanel && (
+        <div className="cart-panel">
+          <Cart />
+          <button onClick={() => setShowCartPanel(false)}>cerrar</button>
+        </div>
+      )}
     </div>
   );
 }
